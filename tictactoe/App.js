@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
 import { MaterialCommunityIcons as Icon } from 'react-native-vector-icons'
 
 export default class App extends React.Component {
@@ -14,7 +14,7 @@ export default class App extends React.Component {
       ],
       playerOne: 1,
     }
-    this.startGame = this.startGame.bind(this)
+    this.startGame = this.startGame.bind(this);
   }
 
   componentDidMount() {
@@ -27,17 +27,18 @@ export default class App extends React.Component {
       [0, 0, 0],
       [0, 0, 0],
       [0, 0, 0]
-
     ]})
   }
 
   gridTouch = (row, col) => {
     let value = this.state.gameState[row][col];
-    if (value !== 0) { return; }
+    if (value !== 0) { 
+      return 
+    }
     
     let playerOne = this.state.playerOne;
 
-    let arr = this.state.gameState.slice();
+    let arr = this.state.gameState;
     arr[row][col] = playerOne;
     this.setState({gameState: arr});
 
@@ -55,10 +56,27 @@ export default class App extends React.Component {
     }
   }
 
+  refresh(){
+    this.setState({
+      ...this.state,
+      gameState: [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+      ]
+    })
+  }
+
 
   render() {
     return (
       <View style={styles.container}>
+
+      <Button
+  onPress={() => this.refresh()}
+  title="Refresh"
+  color="#841584"
+/>
 
         <View style={{flexDirection: 'row'}}>
           <TouchableOpacity onPress={() => this.gridTouch(0, 0)} style={[styles.borderView, { borderRightWidth: 1, borderBottomWidth: 1 }]}>
