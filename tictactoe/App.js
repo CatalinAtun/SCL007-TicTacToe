@@ -32,6 +32,9 @@ export default class App extends React.Component {
   }
 
   gridTouch = (row, col) => {
+    let value = this.state.gameState[row][col];
+    if (value !== 0) { return; }
+    
     let playerOne = this.state.playerOne;
 
     let arr = this.state.gameState.slice();
