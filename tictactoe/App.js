@@ -12,7 +12,7 @@ export default class App extends React.Component {
         [0, 0, 0],
         [0, 0, 0]
       ],
-      currentPlayer: 1,
+      playerOne: 1,
     }
     this.startGame = this.startGame.bind(this)
   }
@@ -32,13 +32,14 @@ export default class App extends React.Component {
   }
 
   gridTouch = (row, col) => {
-    let playerOne = this.state.currentPlayer;
+    let playerOne = this.state.playerOne;
 
     let arr = this.state.gameState.slice();
     arr[row][col] = playerOne;
     this.setState({gameState: arr});
 
     let playerTwo = (playerOne == 1) ? -1 : 1;
+    this.setState({playerOne: playerTwo});
   }
 
   showIcon = (row, col) => {
