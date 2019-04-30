@@ -122,9 +122,20 @@ showIcon = (row, col) => {
   }
 }
 
+// Imprime de quien es el turno
+turn(){
+  if (this.state.playerOne === 1){
+    return 'X'
+  }
+  if (this.state.playerOne === -1){
+    return 'O'
+  }
+}
+
 render() {
   return (
     <View style={styles.container}>
+    <Text style={{color: 'white'}}>Turno de: {this.turn()}</Text>
       <Text style={styles.title}>TIC TAC TOE</Text>
 
       <Button
