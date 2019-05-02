@@ -156,23 +156,23 @@ export default class App extends React.Component {
 
     // ganar con X (1) o O (-1)
     if (showWinner === 1) {
-      alert('gano X')
+      alert('Ganó X')
       this.startGame();
     }
     if (showWinner === -1) {
-      alert('gano O')
+      alert('Ganó O')
       this.startGame();
     }
     if (showWinner === 0) {
-      alert('nadie gana')
+      alert('Nadie gana')
     }
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{ color: 'white' }}>Turno de: {this.turn()}</Text>
         <Text style={styles.title}>TIC TAC TOE</Text>
+        <Text style={{ color: 'yellow', fontSize: 30 }}>Turno de: {this.turn()}</Text>
 
         <Button
           onPress={() => this.startGame()}
@@ -224,7 +224,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   title: {
     fontSize: 40,
-    color: 'pink',
+    color: 'whitesmoke',
   },
   container: {
     flex: 1,
@@ -242,11 +242,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   xStyle: {
-    color: "red",
+    color: "coral",
     fontSize: 60,
   },
   oStyle: {
-    color: "green",
+    color: "lightgreen",
     fontSize: 60,
   }
 });
