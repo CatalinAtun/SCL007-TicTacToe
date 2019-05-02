@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "tictactoe",
+    "description": "Tic Tac Toe creado con React Native",
     "slug": "tictactoe",
     "privacy": "public",
     "sdkVersion": "32.0.0",
