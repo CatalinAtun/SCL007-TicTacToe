@@ -165,6 +165,7 @@ export default class App extends React.Component {
     }
     if (showWinner === 0) {
       alert('Nadie gana')
+      this.startGame();
     }
   }
 
