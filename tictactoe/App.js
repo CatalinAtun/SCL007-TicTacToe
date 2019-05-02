@@ -93,10 +93,15 @@ export default class App extends React.Component {
       return -1
     }
 
-    const zeroes = arr.reduce((prev, intArr) => 
-      intArr.reduce((intPrev,elem) => elem == 0 ? 1+intPrev: intPrev, 0) + prev,0)
-    //nadie gana
-    if(zeroes == 0){
+    let zeroes = 0;
+    for (let i = 0; i < numGrid; i++) {
+      for (let e = 0; e < numGrid; e++) {
+        if (arr[i][e] === 0) {
+          zeroes++;
+        }
+      }
+    }
+    if (zeroes === 0) {
       return 0
     }
   }
